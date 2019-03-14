@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<UndoHistory>
+  <UndoTransaction tv-sec="1552503401" tv-usec="675107" name="new range marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105271" name="range1" start="3044156" end="3605100" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503402" tv-usec="789103" name="move marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105271" name="range1" start="3044156" end="3605100" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105271" name="range1" start="2976000" end="3605100" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503404" tv-usec="628498" name="rename marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105271" name="range1" start="2976000" end="3605100" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105271" name="095" start="2976000" end="3605100" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503406" tv-usec="877241" name="move marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105271" name="095" start="2976000" end="3605100" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="3288000" flags="IsSessionRange" locked="0" position-lock-style="AudioTime"/>
+        <Location id="1018" name="080" start="0" end="192000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="192000" end="384000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="384000" end="576000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="576000" end="768000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="768000" end="960000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="960000" end="1152000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="1152000" end="1344000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="1344000" end="1536000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105121" name="088" start="1632000" end="1824000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105138" name="089" start="1824000" end="2016000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105155" name="090" start="2016000" end="2208000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105172" name="091" start="2208000" end="2400000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105189" name="092" start="2400000" end="2592000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105206" name="093" start="2592000" end="2784000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105223" name="094" start="2784000" end="2976000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+        <Location id="105271" name="095" start="2976000" end="3168000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503413" tv-usec="452724" name="region copy">
+    <StatefulDiffCommand obj-id="104631" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="105289"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503420" tv-usec="253070" name="region copy">
+    <StatefulDiffCommand obj-id="105337" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="105510"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503428" tv-usec="460176" name="region copy">
+    <StatefulDiffCommand obj-id="105558" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="105735"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503436" tv-usec="150669" name="region copy">
+    <StatefulDiffCommand obj-id="105783" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="105964"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503443" tv-usec="412183" name="region copy">
+    <StatefulDiffCommand obj-id="106012" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="106197"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503451" tv-usec="67309" name="region copy">
+    <StatefulDiffCommand obj-id="106245" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="106434"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503460" tv-usec="842171" name="region copy">
+    <StatefulDiffCommand obj-id="106482" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="106675"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552503468" tv-usec="704075" name="region copy">
+    <StatefulDiffCommand obj-id="106723" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="106920"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552552705" tv-usec="212922" name="replace tempo mark">
+    <MementoCommand obj-id="53" type-name="ARDOUR::TempoMap">
+      <TempoMap>
+        <Tempo pulse="0" frame="0" movable="0" lock-style="AudioTime" beats-per-minute="120" note-type="4" clamped="0" end-beats-per-minute="120" active="1" locked-to-meter="1"/>
+        <Meter pulse="0" frame="0" movable="0" lock-style="AudioTime" bbt="1|1|0" beat="0" note-type="4" divisions-per-bar="4"/>
+      </TempoMap>
+      <TempoMap>
+        <Tempo pulse="0" frame="0" movable="0" lock-style="AudioTime" beats-per-minute="60" note-type="4" clamped="0" end-beats-per-minute="60" active="1" locked-to-meter="1"/>
+        <Meter pulse="0" frame="0" movable="0" lock-style="AudioTime" bbt="1|1|0" beat="0" note-type="4" divisions-per-bar="4"/>
+      </TempoMap>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552575341" tv-usec="467797" name="move marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="6576000" start-beat="0" end-beat="137" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="6744" left-frame="0" y-origin="97">
+        <Selection>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="6744" left-frame="0" y-origin="97">
+        <Selection>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552575354" tv-usec="298451" name="region copy">
+    <StatefulDiffCommand obj-id="130877" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="131095"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="97">
+        <Selection>
+          <Regions>
+            <Region id="106920"/>
+          </Regions>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="97">
+        <Selection>
+          <Regions>
+            <Region id="131095"/>
+          </Regions>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552575357" tv-usec="457467" name="region copy">
+    <StatefulDiffCommand obj-id="200" type-name="ARDOUR::MidiPlaylist">
+      <Changes>
+        <Regions>
+          <Add id="131101"/>
+        </Regions>
+      </Changes>
+    </StatefulDiffCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="105241"/>
+          </Regions>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552575359" tv-usec="185005" name="new range marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="131106" name="range1" start="6550047" end="6810955" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="234" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552575359" tv-usec="929377" name="move marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="131106" name="range1" start="6550047" end="6810955" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="131106" name="range1" start="6528000" end="6810955" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="131106" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="131106" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552575361" tv-usec="942632" name="rename marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="131106" name="range1" start="6528000" end="6810955" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="131106" name="096" start="6528000" end="6810955" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="131106" start="1"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="131106" start="1"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+  <UndoTransaction tv-sec="1552575364" tv-usec="66025" name="move marker">
+    <MementoCommand obj-id="34" type-name="ARDOUR::Locations">
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="131106" name="096" start="6528000" end="6810955" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+      <Locations>
+        <Location id="234" name="session" start="0" end="7104000" start-beat="0" end-beat="148" flags="IsSessionRange" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1018" name="080" start="0" end="384000" start-beat="0" end-beat="8" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1408" name="081" start="384000" end="768000" start-beat="8" end-beat="16" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="1810" name="082" start="768000" end="1152000" start-beat="16" end-beat="24" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="3116" name="083" start="1152000" end="1536000" start-beat="24" end-beat="32" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4011" name="084" start="1536000" end="1920000" start-beat="32" end-beat="40" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4214" name="085" start="1920000" end="2304000" start-beat="40" end-beat="48" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="4992" name="086" start="2304000" end="2688000" start-beat="48" end-beat="56" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="102093" name="087" start="2688000" end="3072000" start-beat="56" end-beat="64" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105121" name="088" start="3264000" end="3648000" start-beat="68" end-beat="76" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105138" name="089" start="3648000" end="4032000" start-beat="76" end-beat="84" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105155" name="090" start="4032000" end="4416000" start-beat="84" end-beat="92" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105172" name="091" start="4416000" end="4800000" start-beat="92" end-beat="100" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105189" name="092" start="4800000" end="5184000" start-beat="100" end-beat="108" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105206" name="093" start="5184000" end="5568000" start-beat="108" end-beat="116" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105223" name="094" start="5568000" end="5952000" start-beat="116" end-beat="124.00000000000001" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="105271" name="095" start="5952000" end="6336000" start-beat="124.00000000000001" end-beat="132" flags="IsRangeMarker" locked="0" position-lock-style="MusicTime"/>
+        <Location id="131106" name="096" start="6528000" end="6912000" flags="IsRangeMarker" locked="0" position-lock-style="AudioTime"/>
+      </Locations>
+    </MementoCommand>
+    <MementoCommand obj-id="42" type-name="SelectionMemento">
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="131106" start="0"/>
+        </Selection>
+      </SelectionMemento>
+      <SelectionMemento mouse-mode="MouseObject" zoom="1686" left-frame="5708733" y-origin="0">
+        <Selection>
+          <Regions>
+            <Region id="131101"/>
+          </Regions>
+          <Marker id="131106" start="0"/>
+        </Selection>
+      </SelectionMemento>
+    </MementoCommand>
+  </UndoTransaction>
+</UndoHistory>
