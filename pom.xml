@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.io7m.primogenitor</groupId>
+    <artifactId>com.io7m.primogenitor</artifactId>
+    <version>3.0.0-beta0019</version>
+  </parent>
+
+  <groupId>com.io7m.unbolted_frontiers</groupId>
+  <artifactId>com.io7m.unbolted_frontiers</artifactId>
+  <version>0.0.1</version>
+  <packaging>jar</packaging>
+
+  <name>com.io7m.unbolted_frontiers</name>
+  <description>Unbolted Frontiers</description>
+  <url>http://github.com/io7m/unbolted_frontiers</url>
+
+  <properties>
+    <io7m.api.previousVersion>0.0.1</io7m.api.previousVersion>
+    <com.io7m.jnoisetype.api.version>0.0.1-SNAPSHOT</com.io7m.jnoisetype.api.version>
+  </properties>
+
+  <licenses>
+    <license>
+      <name>ISC License</name>
+      <url>http://io7m.com/license/isc.txt</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>https://github.com/io7m/unbolted_frontiers</url>
+    <connection>scm:git:https://github.com/io7m/unbolted_frontiers</connection>
+    <developerConnection>scm:git:https://github.com/io7m/unbolted_frontiers</developerConnection>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>io7m</id>
+      <name>io7m</name>
+      <email>code@io7m.com</email>
+      <url>http://io7m.com</url>
+    </developer>
+  </developers>
+
+  <issueManagement>
+    <url>http://github.com/io7m/unbolted_frontiers/issues</url>
+    <system>GitHub Issues</system>
+  </issueManagement>
+
+  <distributionManagement>
+    <site>
+      <id>io7m.com</id>
+      <name>io7m.com</name>
+      <url>https://www.io7m.com/software/unbolted_frontiers</url>
+    </site>
+    <repository>
+      <id>sonatype-nexus-staging</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+  <ciManagement>
+    <system>Travis CI</system>
+    <url>https://travis-ci.org/io7m/unbolted_frontiers</url>
+  </ciManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.8.0-beta2</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.3.0-alpha4</version>
+    </dependency>
+    <dependency>
+      <groupId>com.beust</groupId>
+      <artifactId>jcommander</artifactId>
+      <version>1.72</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jflac</groupId>
+      <artifactId>jflac-codec</artifactId>
+      <version>1.5.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jsamplebuffer</groupId>
+      <artifactId>com.io7m.jsamplebuffer.xmedia</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jsamplebuffer</groupId>
+      <artifactId>com.io7m.jsamplebuffer.api</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jsamplebuffer</groupId>
+      <artifactId>com.io7m.jsamplebuffer.vanilla</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jnoisetype</groupId>
+      <artifactId>com.io7m.jnoisetype.api</artifactId>
+      <version>${com.io7m.jnoisetype.api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jnoisetype</groupId>
+      <artifactId>com.io7m.jnoisetype.parser.api</artifactId>
+      <version>${com.io7m.jnoisetype.api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jnoisetype</groupId>
+      <artifactId>com.io7m.jnoisetype.writer.api</artifactId>
+      <version>${com.io7m.jnoisetype.api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jnoisetype</groupId>
+      <artifactId>com.io7m.jnoisetype.vanilla</artifactId>
+      <version>${com.io7m.jnoisetype.api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.io7m.jspiel</groupId>
+      <artifactId>com.io7m.jspiel.vanilla</artifactId>
+      <version>0.0.3</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!-- Require JDK 11 -->
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <configuration>
+            <release>11</release>
+            <source>11</source>
+            <target>11</target>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <!-- Check style -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+
+      <!-- Spot bugs -->
+      <plugin>
+        <groupId>com.github.spotbugs</groupId>
+        <artifactId>spotbugs-maven-plugin</artifactId>
+        <configuration>
+          <excludeFilterFile>spotbugs-filter.xml</excludeFilterFile>
+        </configuration>
+      </plugin>
+
+      <!-- Ignore dependencies that bytecode analysis misses. -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <configuration>
+          <failOnWarning>true</failOnWarning>
+          <ignoredUnusedDeclaredDependencies>
+            <ignoredUnusedDeclaredDependency>ch.qos.logback:logback-classic:*
+            </ignoredUnusedDeclaredDependency>
+          </ignoredUnusedDeclaredDependencies>
+        </configuration>
+      </plugin>
+
+      <!-- Generate a site -->
+      <plugin>
+        <groupId>com.io7m.minisite</groupId>
+        <artifactId>com.io7m.minisite.maven_plugin</artifactId>
+        <inherited>false</inherited>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
