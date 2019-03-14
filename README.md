@@ -19,3 +19,12 @@ not be mentioned here.
 
 Increased luck. Long life. May not contain sodium acetate.
 
+## License
+
+This work is placed into the public domain for free use by anyone
+for any purpose. It may be freely used, modified, and distributed.
+
+In jurisdictions that do not recognise the public domain this work
+may be freely used, modified, and distributed without restriction.
+
+This work comes with absolutely no warranty.
