@@ -54,6 +54,326 @@ public final class MakeFont
 
   }
 
+  public static void main(
+    final String[] args)
+    throws IOException, NTWriteException
+  {
+    final var parameters = new Parameters();
+
+    JCommander.newBuilder()
+      .addObject(parameters)
+      .build()
+      .parse(args);
+
+    final var pitched_sources =
+      Files.list(parameters.inputDirectory)
+        .sorted()
+        .map(path -> {
+          try {
+            LOG.debug("opening source: {}", path);
+            return SourceFile.open(path);
+          } catch (IOException e) {
+            throw new UncheckedIOException(e);
+          } catch (UnsupportedAudioFileException e) {
+            throw new UncheckedIOException(new IOException(e));
+          }
+        }).collect(Collectors.toList());
+
+    final var percussion_sources =
+      Files.list(parameters.inputPercussionDirectory)
+        .sorted()
+        .map(path -> {
+          try {
+            LOG.debug("opening source: {}", path);
+            return SourceFile.open(path);
+          } catch (IOException e) {
+            throw new UncheckedIOException(e);
+          } catch (UnsupportedAudioFileException e) {
+            throw new UncheckedIOException(new IOException(e));
+          }
+        }).collect(Collectors.toList());
+
+    final var adjustment_map =
+      loadAdjustmentMap();
+
+    final var builders =
+      ServiceLoader.load(NTBuilderProviderType.class)
+        .findFirst()
+        .orElseThrow(() -> new IllegalStateException("No builder service available"));
+
+    final var writers =
+      ServiceLoader.load(NTWriterProviderType.class)
+        .findFirst()
+        .orElseThrow(() -> new IllegalStateException("No writer service available"));
+
+    final var builder = builders.createBuilder();
+    builder.setInfo(
+      NTInfo.builder()
+        .setName(NTShortString.of(fontName()))
+        .setVersion(NTVersion.of(2, 11))
+        .setProduct(NTShortString.of("com.io7m.music.unbolted_frontiers"))
+        .setEngineers(NTShortString.of("Mark Raynsford <audio@io7m.com>"))
+        .setCopyright(NTShortString.of("Public Domain"))
+        .setCreationDate(NTShortString.of(OffsetDateTime.now().toString()))
+        .setComment(NTLongString.of(textResource("comment.txt")))
+        .build());
+
+    var instrument_index = 0;
+    for (; instrument_index < pitched_sources.size(); ++instrument_index) {
+      final var source = pitched_sources.get(instrument_index);
+
+      final var instrument =
+        PitchedInstrument.create(source, instrument_index);
+
+      final var adjustment =
+        adjustment_map.getOrDefault(
+          Integer.valueOf(instrument_index),
+          Integer.valueOf(0))
+          .intValue();
+
+      final var sf_instrument =
+        builder.addInstrument(String.format("%03d", Integer.valueOf(instrument_index)));
+
+      final var preset =
+        builder.addPreset(sf_instrument.name().value());
+
+      final var preset_zone_global =
+        preset.addZone()
+          .addKeyRangeGenerator(0, 127)
+          .addInstrumentGenerator(sf_instrument);
+
+      final var instrument_zone_global =
+        sf_instrument.addZone();
+
+      instrument_zone_global.addGenerator(
+        NTGenerators.findForName("coarseTune")
+          .orElseThrow(() -> new IllegalStateException("Missing generator")),
+        NTGenericAmount.of(((char) adjustment)));
+
+      instrument_zone_global.addModulator(
+        526,
+        NTGenerators.findForName("coarseTune")
+          .orElseThrow(() -> new IllegalStateException("Missing generator")),
+        (short) 10,
+        512,
+        NTTransforms.find(0));
+
+      for (final var note : instrument.notes) {
+        final var sample_attack =
+          builder.addSample(
+            String.format(
+              "%03d_%03d_A",
+              Integer.valueOf(note.instrument),
+              Integer.valueOf(note.rootNote)));
+
+        sample_attack.setSampleRate((int) note.data_attack.sampleRate());
+        sample_attack.setPitchCorrection(0);
+        sample_attack.setSampleCount(note.data_attack.samples());
+        sample_attack.setOriginalPitch(NTPitch.of(note.rootNote));
+        sample_attack.setLoopStart(0L);
+        sample_attack.setLoopEnd(note.data_attack.samples() - 1L);
+        sample_attack.setDataWriter(channel -> copySampleToChannel(note.data_attack, channel));
+
+        final var sample_sustain =
+          builder.addSample(
+            String.format(
+              "%03d_%03d_S",
+              Integer.valueOf(note.instrument),
+              Integer.valueOf(note.rootNote)));
+
+        sample_sustain.setSampleRate((int) note.data_sustain.sampleRate());
+        sample_sustain.setPitchCorrection(0);
+        sample_sustain.setSampleCount(note.data_sustain.samples());
+        sample_sustain.setOriginalPitch(NTPitch.of(note.rootNote));
+        sample_sustain.setLoopStart(0L);
+        sample_sustain.setLoopEnd(note.data_sustain.samples() - 1L);
+        sample_sustain.setDataWriter(channel -> copySampleToChannel(note.data_sustain, channel));
+
+        final var instrument_zone_attack = sf_instrument.addZone();
+        instrument_zone_attack.addKeyRangeGenerator(note.rootNote, note.rootNote + 11);
+        instrument_zone_attack.addGenerator(
+          NTGenerators.findForName("sampleModes").orElseThrow(),
+          NTGenericAmount.of(0));
+        instrument_zone_attack.addSampleGenerator(sample_attack);
+
+        final var instrument_zone_sustain = sf_instrument.addZone();
+        instrument_zone_sustain.addKeyRangeGenerator(note.rootNote, note.rootNote + 11);
+        instrument_zone_sustain.addGenerator(
+          NTGenerators.findForName("sampleModes").orElseThrow(),
+          NTGenericAmount.of(1));
+        instrument_zone_sustain.addSampleGenerator(sample_sustain);
+      }
+    }
+
+    {
+      final var instrument =
+        PercussiveInstrument.create(percussion_sources, instrument_index);
+
+      final var sf_instrument =
+        builder.addInstrument(String.format("p_%03d", Integer.valueOf(instrument_index)));
+
+      final var preset =
+        builder.addPreset(sf_instrument.name().value());
+
+      preset.setBank(128);
+
+      final var preset_zone_global =
+        preset.addZone()
+          .addKeyRangeGenerator(0, 127)
+          .addInstrumentGenerator(sf_instrument);
+
+      final var instrument_zone_global =
+        sf_instrument.addZone();
+
+      instrument_zone_global.addModulator(
+        526,
+        NTGenerators.findForName("coarseTune")
+          .orElseThrow(() -> new IllegalStateException("Missing generator")),
+        (short) 10,
+        512,
+        NTTransforms.find(0));
+
+      for (final var note : instrument.notes) {
+        final var sample_attack =
+          builder.addSample(
+            String.format(
+              "p_%03d_%03d_A",
+              Integer.valueOf(note.instrument),
+              Integer.valueOf(note.rootNote)));
+
+        sample_attack.setSampleRate((int) note.data_attack.sampleRate());
+        sample_attack.setPitchCorrection(0);
+        sample_attack.setSampleCount(note.data_attack.samples());
+        sample_attack.setOriginalPitch(NTPitch.of(note.rootNote));
+        sample_attack.setLoopStart(0L);
+        sample_attack.setLoopEnd(note.data_attack.samples() - 1L);
+        sample_attack.setDataWriter(channel -> copySampleToChannel(note.data_attack, channel));
+
+        final var sample_sustain =
+          builder.addSample(
+            String.format(
+              "p_%03d_%03d_S",
+              Integer.valueOf(note.instrument),
+              Integer.valueOf(note.rootNote)));
+
+        sample_sustain.setSampleRate((int) note.data_sustain.sampleRate());
+        sample_sustain.setPitchCorrection(0);
+        sample_sustain.setSampleCount(note.data_sustain.samples());
+        sample_sustain.setOriginalPitch(NTPitch.of(note.rootNote));
+        sample_sustain.setLoopStart(0L);
+        sample_sustain.setLoopEnd(note.data_sustain.samples() - 1L);
+        sample_sustain.setDataWriter(channel -> copySampleToChannel(note.data_sustain, channel));
+
+        final var instrument_zone_attack = sf_instrument.addZone();
+        instrument_zone_attack.addKeyRangeGenerator(note.rootNote, note.rootNote);
+        instrument_zone_attack.addGenerator(
+          NTGenerators.findForName("sampleModes").orElseThrow(),
+          NTGenericAmount.of(0));
+        instrument_zone_attack.addSampleGenerator(sample_attack);
+
+        final var instrument_zone_sustain = sf_instrument.addZone();
+        instrument_zone_sustain.addKeyRangeGenerator(note.rootNote, note.rootNote);
+        instrument_zone_sustain.addGenerator(
+          NTGenerators.findForName("sampleModes").orElseThrow(),
+          NTGenericAmount.of(1));
+        instrument_zone_sustain.addSampleGenerator(sample_sustain);
+      }
+    }
+
+    final var description = builder.build();
+    try (var channel = FileChannel.open(parameters.outputFile, CREATE, TRUNCATE_EXISTING, WRITE)) {
+      final var writer = writers.createForChannel(
+        parameters.outputFile.toUri(),
+        description,
+        channel);
+      writer.write();
+    }
+  }
+
+  private static Map<Integer, Integer> loadAdjustmentMap()
+    throws IOException
+  {
+    final var map = new HashMap<Integer, Integer>(128);
+    try (var stream = MakeFont.class.getResourceAsStream(
+      "/com/io7m/unbolted_frontiers/pitch_adjust.properties")) {
+
+      final var properties = new Properties();
+      properties.load(stream);
+
+      for (final var entry : properties.entrySet()) {
+        final var key = ((String) entry.getKey()).trim();
+        final var val = ((String) entry.getValue()).trim();
+        map.put(
+          Integer.valueOf(Integer.parseInt(key)),
+          Integer.valueOf(Integer.parseInt(val)));
+      }
+    }
+    return map;
+  }
+
+  private static String textResource(
+    final String name)
+    throws IOException
+  {
+    final var path = "/com/io7m/unbolted_frontiers/" + name;
+    try (var stream = MakeFont.class.getResourceAsStream(path)) {
+      return new String(stream.readAllBytes(), US_ASCII);
+    }
+  }
+
+  private static String fontName()
+  {
+    final var ver = fontVersion();
+    return "Unbolted Frontiers " + ver;
+  }
+
+  private static String fontVersion()
+  {
+    final var pack = MakeFont.class.getPackage();
+    if (pack != null) {
+      final var ver = pack.getImplementationVersion();
+      if (ver != null) {
+        return ver;
+      }
+    }
+    return "0.0.0";
+  }
+
+  private static void copySampleToChannel(
+    final SampleBufferType source,
+    final SeekableByteChannel channel)
+    throws IOException
+  {
+    final var buffer =
+      ByteBuffer.allocate(Math.toIntExact(source.samples() * 2L))
+        .order(LITTLE_ENDIAN);
+
+    for (var index = 0L; index < source.frames(); ++index) {
+      final var frame_d = source.frameGetExact(index);
+
+      /*
+       * Quantize to 8-bit for worse quality.
+       */
+
+      final var frame_s = frame_d * 32767.0;
+      final var frame_i = (short) frame_s;
+      buffer.putShort(frame_i);
+    }
+
+    buffer.flip();
+    final var wrote = channel.write(buffer);
+    if (wrote != buffer.capacity()) {
+      throw new IOException(
+        new StringBuilder(32)
+          .append("Wrote too few bytes (wrote ")
+          .append(wrote)
+          .append(" expected ")
+          .append(buffer.capacity())
+          .append(")")
+          .toString());
+    }
+  }
+
   public static final class Parameters
   {
     @Parameter(names = "--input-directory", required = true)
@@ -308,325 +628,6 @@ public final class MakeFont
       }
 
       return bufferSustainOutput;
-    }
-  }
-
-  public static void main(
-    final String[] args)
-    throws IOException, NTWriteException
-  {
-    final var parameters = new Parameters();
-
-    JCommander.newBuilder()
-      .addObject(parameters)
-      .build()
-      .parse(args);
-
-    final var pitched_sources =
-      Files.list(parameters.inputDirectory)
-        .sorted()
-        .map(path -> {
-          try {
-            LOG.debug("opening source: {}", path);
-            return SourceFile.open(path);
-          } catch (IOException e) {
-            throw new UncheckedIOException(e);
-          } catch (UnsupportedAudioFileException e) {
-            throw new UncheckedIOException(new IOException(e));
-          }
-        }).collect(Collectors.toList());
-
-    final var percussion_sources =
-      Files.list(parameters.inputPercussionDirectory)
-        .sorted()
-        .map(path -> {
-          try {
-            LOG.debug("opening source: {}", path);
-            return SourceFile.open(path);
-          } catch (IOException e) {
-            throw new UncheckedIOException(e);
-          } catch (UnsupportedAudioFileException e) {
-            throw new UncheckedIOException(new IOException(e));
-          }
-        }).collect(Collectors.toList());
-
-    final var adjustment_map =
-      loadAdjustmentMap();
-
-    final var builders =
-      ServiceLoader.load(NTBuilderProviderType.class)
-        .findFirst()
-        .orElseThrow(() -> new IllegalStateException("No builder service available"));
-
-    final var writers =
-      ServiceLoader.load(NTWriterProviderType.class)
-        .findFirst()
-        .orElseThrow(() -> new IllegalStateException("No writer service available"));
-
-    final var builder = builders.createBuilder();
-    builder.setInfo(
-      NTInfo.builder()
-        .setName(NTShortString.of(fontName()))
-        .setVersion(NTVersion.of(2, 11))
-        .setProduct(NTShortString.of("com.io7m.music.unbolted_frontiers"))
-        .setEngineers(NTShortString.of("Mark Raynsford <audio@io7m.com>"))
-        .setCopyright(NTShortString.of("Public Domain"))
-        .setCreationDate(NTShortString.of(OffsetDateTime.now().toString()))
-        .setComment(NTLongString.of(textResource("comment.txt")))
-        .build());
-
-    var instrument_index = 0;
-    for (; instrument_index < pitched_sources.size(); ++instrument_index) {
-      final var source = pitched_sources.get(instrument_index);
-
-      final var instrument =
-        PitchedInstrument.create(source, instrument_index);
-
-      final var adjustment =
-        adjustment_map.getOrDefault(
-          Integer.valueOf(instrument_index),
-          Integer.valueOf(0))
-          .intValue();
-
-      final var sf_instrument =
-        builder.addInstrument(String.format("%03d", Integer.valueOf(instrument_index)));
-
-      final var preset =
-        builder.addPreset(sf_instrument.name().value());
-
-      final var preset_zone_global =
-        preset.addZone()
-          .addKeyRangeGenerator(0, 127)
-          .addInstrumentGenerator(sf_instrument);
-
-      final var instrument_zone_global =
-        sf_instrument.addZone();
-
-      instrument_zone_global.addGenerator(
-        NTGenerators.findForName("coarseTune")
-          .orElseThrow(() -> new IllegalStateException("Missing generator")),
-        NTGenericAmount.of(((char) adjustment)));
-
-      instrument_zone_global.addModulator(
-        526,
-        NTGenerators.findForName("coarseTune")
-          .orElseThrow(() -> new IllegalStateException("Missing generator")),
-        (short) 10,
-        512,
-        NTTransforms.find(0));
-
-      for (final var note : instrument.notes) {
-        final var sample_attack =
-          builder.addSample(
-            String.format(
-              "%03d_%03d_A",
-              Integer.valueOf(note.instrument),
-              Integer.valueOf(note.rootNote)));
-
-        sample_attack.setSampleRate((int) note.data_attack.sampleRate());
-        sample_attack.setPitchCorrection(0);
-        sample_attack.setSampleCount(note.data_attack.samples());
-        sample_attack.setOriginalPitch(NTPitch.of(note.rootNote));
-        sample_attack.setLoopStart(0L);
-        sample_attack.setLoopEnd(note.data_attack.samples() - 1L);
-        sample_attack.setDataWriter(channel -> copySampleToChannel(note.data_attack, channel));
-
-        final var sample_sustain =
-          builder.addSample(
-            String.format(
-              "%03d_%03d_S",
-              Integer.valueOf(note.instrument),
-              Integer.valueOf(note.rootNote)));
-
-        sample_sustain.setSampleRate((int) note.data_sustain.sampleRate());
-        sample_sustain.setPitchCorrection(0);
-        sample_sustain.setSampleCount(note.data_sustain.samples());
-        sample_sustain.setOriginalPitch(NTPitch.of(note.rootNote));
-        sample_sustain.setLoopStart(0L);
-        sample_sustain.setLoopEnd(note.data_sustain.samples() - 1L);
-        sample_sustain.setDataWriter(channel -> copySampleToChannel(note.data_sustain, channel));
-
-        final var instrument_zone_attack = sf_instrument.addZone();
-        instrument_zone_attack.addKeyRangeGenerator(note.rootNote, note.rootNote + 11);
-        instrument_zone_attack.addGenerator(
-          NTGenerators.findForName("sampleModes").orElseThrow(),
-          NTGenericAmount.of(0));
-        instrument_zone_attack.addSampleGenerator(sample_attack);
-
-        final var instrument_zone_sustain = sf_instrument.addZone();
-        instrument_zone_sustain.addKeyRangeGenerator(note.rootNote, note.rootNote + 11);
-        instrument_zone_sustain.addGenerator(
-          NTGenerators.findForName("sampleModes").orElseThrow(),
-          NTGenericAmount.of(1));
-        instrument_zone_sustain.addSampleGenerator(sample_sustain);
-      }
-    }
-
-    {
-      final var instrument =
-        PercussiveInstrument.create(percussion_sources, instrument_index);
-
-      final var sf_instrument =
-        builder.addInstrument(String.format("p_%03d", Integer.valueOf(instrument_index)));
-
-      final var preset =
-        builder.addPreset(sf_instrument.name().value());
-
-      preset.setBank(128);
-
-      final var preset_zone_global =
-        preset.addZone()
-          .addKeyRangeGenerator(0, 127)
-          .addInstrumentGenerator(sf_instrument);
-
-      final var instrument_zone_global =
-        sf_instrument.addZone();
-
-      instrument_zone_global.addModulator(
-        526,
-        NTGenerators.findForName("coarseTune")
-          .orElseThrow(() -> new IllegalStateException("Missing generator")),
-        (short) 10,
-        512,
-        NTTransforms.find(0));
-
-      for (final var note : instrument.notes) {
-        final var sample_attack =
-          builder.addSample(
-            String.format(
-              "p_%03d_%03d_A",
-              Integer.valueOf(note.instrument),
-              Integer.valueOf(note.rootNote)));
-
-        sample_attack.setSampleRate((int) note.data_attack.sampleRate());
-        sample_attack.setPitchCorrection(0);
-        sample_attack.setSampleCount(note.data_attack.samples());
-        sample_attack.setOriginalPitch(NTPitch.of(note.rootNote));
-        sample_attack.setLoopStart(0L);
-        sample_attack.setLoopEnd(note.data_attack.samples() - 1L);
-        sample_attack.setDataWriter(channel -> copySampleToChannel(note.data_attack, channel));
-
-        final var sample_sustain =
-          builder.addSample(
-            String.format(
-              "p_%03d_%03d_S",
-              Integer.valueOf(note.instrument),
-              Integer.valueOf(note.rootNote)));
-
-        sample_sustain.setSampleRate((int) note.data_sustain.sampleRate());
-        sample_sustain.setPitchCorrection(0);
-        sample_sustain.setSampleCount(note.data_sustain.samples());
-        sample_sustain.setOriginalPitch(NTPitch.of(note.rootNote));
-        sample_sustain.setLoopStart(0L);
-        sample_sustain.setLoopEnd(note.data_sustain.samples() - 1L);
-        sample_sustain.setDataWriter(channel -> copySampleToChannel(note.data_sustain, channel));
-
-        final var instrument_zone_attack = sf_instrument.addZone();
-        instrument_zone_attack.addKeyRangeGenerator(note.rootNote, note.rootNote);
-        instrument_zone_attack.addGenerator(
-          NTGenerators.findForName("sampleModes").orElseThrow(),
-          NTGenericAmount.of(0));
-        instrument_zone_attack.addSampleGenerator(sample_attack);
-
-        final var instrument_zone_sustain = sf_instrument.addZone();
-        instrument_zone_sustain.addKeyRangeGenerator(note.rootNote, note.rootNote);
-        instrument_zone_sustain.addGenerator(
-          NTGenerators.findForName("sampleModes").orElseThrow(),
-          NTGenericAmount.of(1));
-        instrument_zone_sustain.addSampleGenerator(sample_sustain);
-      }
-    }
-
-    final var description = builder.build();
-    try (var channel = FileChannel.open(parameters.outputFile, CREATE, TRUNCATE_EXISTING, WRITE)) {
-      final var writer = writers.createForChannel(
-        parameters.outputFile.toUri(),
-        description,
-        channel);
-      writer.write();
-    }
-  }
-
-  private static Map<Integer, Integer> loadAdjustmentMap()
-    throws IOException
-  {
-    final var map = new HashMap<Integer, Integer>(128);
-    try (var stream = MakeFont.class.getResourceAsStream(
-      "/com/io7m/unbolted_frontiers/pitch_adjust.properties")) {
-
-      final var properties = new Properties();
-      properties.load(stream);
-
-      for (final var entry : properties.entrySet()) {
-        final var key = ((String) entry.getKey()).trim();
-        final var val = ((String) entry.getValue()).trim();
-        map.put(Integer.valueOf(Integer.parseInt(key)),
-                Integer.valueOf(Integer.parseInt(val)));
-      }
-    }
-    return map;
-  }
-
-  private static String textResource(
-    final String name)
-    throws IOException
-  {
-    final var path = "/com/io7m/unbolted_frontiers/" + name;
-    try (var stream = MakeFont.class.getResourceAsStream(path)) {
-      return new String(stream.readAllBytes(), US_ASCII);
-    }
-  }
-
-  private static String fontName()
-  {
-    final var ver = fontVersion();
-    return "Unbolted Frontiers " + ver;
-  }
-
-  private static String fontVersion()
-  {
-    final var pack = MakeFont.class.getPackage();
-    if (pack != null) {
-      final var ver = pack.getImplementationVersion();
-      if (ver != null) {
-        return ver;
-      }
-    }
-    return "0.0.0";
-  }
-
-  private static void copySampleToChannel(
-    final SampleBufferType source,
-    final SeekableByteChannel channel)
-    throws IOException
-  {
-    final var buffer =
-      ByteBuffer.allocate(Math.toIntExact(source.samples() * 2L))
-        .order(LITTLE_ENDIAN);
-
-    for (var index = 0L; index < source.frames(); ++index) {
-      final var frame_d = source.frameGetExact(index);
-
-      /*
-       * Quantize to 8-bit for worse quality.
-       */
-
-      final var frame_s = frame_d * 32767.0;
-      final var frame_i = (short) frame_s;
-      buffer.putShort(frame_i);
-    }
-
-    buffer.flip();
-    final var wrote = channel.write(buffer);
-    if (wrote != buffer.capacity()) {
-      throw new IOException(
-        new StringBuilder(32)
-          .append("Wrote too few bytes (wrote ")
-          .append(wrote)
-          .append(" expected ")
-          .append(buffer.capacity())
-          .append(")")
-          .toString());
     }
   }
 }
