@@ -31,8 +31,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Properties;
 import java.util.ServiceLoader;
 import java.util.stream.Collectors;
 
@@ -347,6 +350,9 @@ public final class MakeFont
           }
         }).collect(Collectors.toList());
 
+    final var adjustment_map =
+      loadAdjustmentMap();
+
     final var builders =
       ServiceLoader.load(NTBuilderProviderType.class)
         .findFirst()
@@ -376,6 +382,12 @@ public final class MakeFont
       final var instrument =
         PitchedInstrument.create(source, instrument_index);
 
+      final var adjustment =
+        adjustment_map.getOrDefault(
+          Integer.valueOf(instrument_index),
+          Integer.valueOf(0))
+          .intValue();
+
       final var sf_instrument =
         builder.addInstrument(String.format("%03d", Integer.valueOf(instrument_index)));
 
@@ -389,6 +401,11 @@ public final class MakeFont
 
       final var instrument_zone_global =
         sf_instrument.addZone();
+
+      instrument_zone_global.addGenerator(
+        NTGenerators.findForName("coarseTune")
+          .orElseThrow(() -> new IllegalStateException("Missing generator")),
+        NTGenericAmount.of(((char) adjustment)));
 
       instrument_zone_global.addModulator(
         526,
@@ -528,6 +545,26 @@ public final class MakeFont
         channel);
       writer.write();
     }
+  }
+
+  private static Map<Integer, Integer> loadAdjustmentMap()
+    throws IOException
+  {
+    final var map = new HashMap<Integer, Integer>(128);
+    try (var stream = MakeFont.class.getResourceAsStream(
+      "/com/io7m/unbolted_frontiers/pitch_adjust.properties")) {
+
+      final var properties = new Properties();
+      properties.load(stream);
+
+      for (final var entry : properties.entrySet()) {
+        final var key = ((String) entry.getKey()).trim();
+        final var val = ((String) entry.getValue()).trim();
+        map.put(Integer.valueOf(Integer.parseInt(key)),
+                Integer.valueOf(Integer.parseInt(val)));
+      }
+    }
+    return map;
   }
 
   private static String textResource(
