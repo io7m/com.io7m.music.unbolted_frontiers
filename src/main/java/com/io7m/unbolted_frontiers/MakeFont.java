@@ -120,8 +120,8 @@ public final class MakeFont
 
     var instrument_index = 0;
     for (; instrument_index < pitched_sources.size(); ++instrument_index) {
-      final var source = pitched_sources.get(instrument_index);
-
+      final var source =
+        pitched_sources.get(instrument_index);
       final var instrument =
         PitchedInstrument.create(source, instrument_index);
 
@@ -159,6 +159,11 @@ public final class MakeFont
         NTTransforms.find(0));
 
       for (final var note : instrument.notes) {
+        final var is_first =
+          instrument.notes.indexOf(note) == 0;
+        final var is_last =
+          instrument.notes.indexOf(note) == instrument.notes.size() - 1;
+
         final var sample_attack =
           builder.addSample(
             String.format(
@@ -189,15 +194,20 @@ public final class MakeFont
         sample_sustain.setLoopEnd(note.data_sustain.samples() - 1L);
         sample_sustain.setDataWriter(channel -> copySampleToChannel(note.data_sustain, channel));
 
+        final var lower_note =
+          is_first ? 0 : note.rootNote;
+        final var upper_note =
+          is_last ? 127 : note.rootNote + 11;
+
         final var instrument_zone_attack = sf_instrument.addZone();
-        instrument_zone_attack.addKeyRangeGenerator(note.rootNote, note.rootNote + 11);
+        instrument_zone_attack.addKeyRangeGenerator(lower_note, upper_note);
         instrument_zone_attack.addGenerator(
           NTGenerators.findForName("sampleModes").orElseThrow(),
           NTGenericAmount.of(0));
         instrument_zone_attack.addSampleGenerator(sample_attack);
 
         final var instrument_zone_sustain = sf_instrument.addZone();
-        instrument_zone_sustain.addKeyRangeGenerator(note.rootNote, note.rootNote + 11);
+        instrument_zone_sustain.addKeyRangeGenerator(lower_note, upper_note);
         instrument_zone_sustain.addGenerator(
           NTGenerators.findForName("sampleModes").orElseThrow(),
           NTGenericAmount.of(1));
