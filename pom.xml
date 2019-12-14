@@ -6,8 +6,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.io7m.primogenitor</groupId>
-    <artifactId>com.io7m.primogenitor</artifactId>
-    <version>3.0.0-beta0019</version>
+    <artifactId>com.io7m.primogenitor.full</artifactId>
+    <version>3.5.0</version>
   </parent>
 
   <groupId>com.io7m.unbolted_frontiers</groupId>
@@ -21,7 +21,7 @@
 
   <properties>
     <io7m.api.previousVersion>0.0.1</io7m.api.previousVersion>
-    <com.io7m.jnoisetype.api.version>0.0.1-SNAPSHOT</com.io7m.jnoisetype.api.version>
+    <com.io7m.jnoisetype.api.version>0.0.2</com.io7m.jnoisetype.api.version>
   </properties>
 
   <licenses>
@@ -147,21 +147,6 @@
     </pluginManagement>
 
     <plugins>
-      <!-- Check style -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-checkstyle-plugin</artifactId>
-      </plugin>
-
-      <!-- Spot bugs -->
-      <plugin>
-        <groupId>com.github.spotbugs</groupId>
-        <artifactId>spotbugs-maven-plugin</artifactId>
-        <configuration>
-          <excludeFilterFile>spotbugs-filter.xml</excludeFilterFile>
-        </configuration>
-      </plugin>
-
       <!-- Ignore dependencies that bytecode analysis misses. -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -169,8 +154,10 @@
         <configuration>
           <failOnWarning>true</failOnWarning>
           <ignoredUnusedDeclaredDependencies>
-            <ignoredUnusedDeclaredDependency>ch.qos.logback:logback-classic:*
-            </ignoredUnusedDeclaredDependency>
+            <ignoredUnusedDeclaredDependency>ch.qos.logback:logback-classic:*</ignoredUnusedDeclaredDependency>
+            <ignoredUnusedDeclaredDependency>com.io7m.jnoisetype:*</ignoredUnusedDeclaredDependency>
+            <ignoredUnusedDeclaredDependency>com.io7m.jspiel:*</ignoredUnusedDeclaredDependency>
+            <ignoredUnusedDeclaredDependency>org.jflac:*</ignoredUnusedDeclaredDependency>
           </ignoredUnusedDeclaredDependencies>
         </configuration>
       </plugin>

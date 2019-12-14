@@ -1,7 +1,24 @@
+/*
+ * Copyright © 2019 Mark Raynsford <code@io7m.com> http://io7m.com
+ *
+ * Permission to use, copy, modify, and/or distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+ * SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+ * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
 package com.io7m.unbolted_frontiers;
 
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
+import com.io7m.jnoisetype.api.NTBankIndex;
 import com.io7m.jnoisetype.api.NTGenerators;
 import com.io7m.jnoisetype.api.NTGenericAmount;
 import com.io7m.jnoisetype.api.NTInfo;
@@ -135,7 +152,9 @@ public final class MakeFont
         builder.addInstrument(String.format("%03d", Integer.valueOf(instrument_index)));
 
       final var preset =
-        builder.addPreset(sf_instrument.name().value());
+        builder.addPreset(
+          NTBankIndex.of(0),
+          sf_instrument.name().value());
 
       final var preset_zone_global =
         preset.addZone()
@@ -216,16 +235,16 @@ public final class MakeFont
     }
 
     {
+      final var percussiveInstrumentIndex = 0;
       final var instrument =
-        PercussiveInstrument.create(percussion_sources, instrument_index);
-
+        PercussiveInstrument.create(percussion_sources, percussiveInstrumentIndex);
       final var sf_instrument =
-        builder.addInstrument(String.format("p_%03d", Integer.valueOf(instrument_index)));
+        builder.addInstrument("percussion");
 
       final var preset =
-        builder.addPreset(sf_instrument.name().value());
-
-      preset.setBank(128);
+        builder.addPreset(
+          NTBankIndex.of(128),
+          sf_instrument.name().value());
 
       final var preset_zone_global =
         preset.addZone()
